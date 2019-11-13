@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<h1>Amazing iframe integration goes here ↓</h1>
+
+<div style="border:1px dotted red">
+  <script type="text/javascript" charset="utf-8" id="mnd-script">
+    (function(){
+      const pressroomName =
+        location.search.substring(1)
+          .split('&')
+          .map(function(qs) { return qs.split('=') })
+          .find(function (qs) { return qs[0] === 'pressroom' })
+          [1];
+
+      const s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://' + pressroomName + '.mynewsdesk.com/hosted_newsroom.js';
+      const i = document.getElementsByTagName('script')[0];
+      i.parentNode.insertBefore(s, i);
+    })();
+  </script>
+</div>
+</body>
+</html>
