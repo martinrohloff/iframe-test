@@ -7,12 +7,14 @@
 <div style="border:1px dotted red">
   <script type="text/javascript" charset="utf-8" id="mnd-script">
     (function(){
-      const pressroomName =
-        location.search.substring(1)
-          .split('&')
-          .map(function(qs) { return qs.split('=') })
-          .find(function (qs) { return qs[0] === 'pressroom' })
-          [1];
+      let pressroomName =
+        (
+          location.search.substring(1)
+            .split('&')
+            .map(function(qs) { return qs.split('=') })
+            .find(function (qs) { return qs[0] === 'pressroom' })
+          || [null, "mynewsdesk"]
+        )[1];
 
       const s = document.createElement('script');
       s.type = 'text/javascript';
